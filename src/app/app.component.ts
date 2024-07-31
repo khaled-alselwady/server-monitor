@@ -8,7 +8,8 @@ import { TicketsComponent } from './dashboard/tickets/tickets.component';
   selector: 'app-root',
   standalone: true,
   templateUrl: './app.component.html',
-  imports: [HeaderComponent,
+  imports: [
+    HeaderComponent,
     ServerStatusComponent,
     TrafficComponent,
     TicketsComponent,
