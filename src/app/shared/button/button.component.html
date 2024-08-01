@@ -2,4 +2,7 @@
   <ng-content />
 </span>
 
-<ng-content select=".icon" />
+<span class="icon">
+  <!--the value inside ng-content (→) appears only when there is no "icon" selector in the markup-->
+  <ng-content select="icon"> → </ng-content>
+</span>
