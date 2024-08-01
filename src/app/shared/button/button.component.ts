@@ -1,4 +1,4 @@
-import { Component, input, Input } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'button[appButton]', // Attribute selector => for access any button that has an attribute (appButton)
