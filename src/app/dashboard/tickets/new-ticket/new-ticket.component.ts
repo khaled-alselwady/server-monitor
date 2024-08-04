@@ -11,8 +11,9 @@ import { FormsModule } from '@angular/forms';
   imports: [ButtonComponent, ControlComponent, FormsModule],
 })
 export class NewTicketComponent {
-  onSubmit(title: string, ticketText: string) {
+  onSubmit(title: string, ticketText: string, form: HTMLFormElement) {
     console.log(title);
     console.log(ticketText);
+    form.reset(); // Clear form inputs after submission
   }
 }
