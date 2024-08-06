@@ -1,5 +1,6 @@
 import {
   Component,
+  ContentChild,
   ElementRef,
   HostBinding,
   HostListener,
@@ -30,7 +31,12 @@ export class ControlComponent {
 
   private el = inject(ElementRef);
 
+  @ContentChild('input') private control?: ElementRef<
+    HTMLInputElement | HTMLTextAreaElement
+  >;
+
   onClick() {
-    // console.log(this.el); // using that to interact with DOM of the host element 'app-control' directly
+    console.log(this.el); // using that to interact with DOM of the host element 'app-control' directly
+    console.log(this.control);
   }
 }
