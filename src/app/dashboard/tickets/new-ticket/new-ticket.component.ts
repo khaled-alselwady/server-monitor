@@ -1,6 +1,8 @@
 import {
+  AfterViewInit,
   Component,
   ElementRef,
+  OnInit,
   viewChild,
   ViewChild,
   viewChildren,
@@ -17,12 +19,23 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './new-ticket.component.css',
   imports: [ButtonComponent, ControlComponent, FormsModule],
 })
-export class NewTicketComponent {
-  // @ViewChild('form') private form?: ElementRef<HTMLFormElement>;
-  private form = viewChild.required<ElementRef<HTMLFormElement>>('form');
+export class NewTicketComponent implements AfterViewInit, OnInit {
+  @ViewChild('form') private form?: ElementRef<HTMLFormElement>;
+  // private form = viewChild.required<ElementRef<HTMLFormElement>>('form');
+
+  ngOnInit() {
+    console.log('OnInit');
+    // console.log(this.form?.nativeElement); // undefined
+  }
+
+  ngAfterViewInit() {
+    console.log('AfterViewInit');
+    console.log(this.form?.nativeElement);
+  }
+
   onSubmit(title: string, ticketText: string) {
     console.log(title);
     console.log(ticketText);
-    this.form().nativeElement.reset(); // Clear form inputs after submission
+    this.form?.nativeElement.reset(); // Clear form inputs after submission
   }
 }
