@@ -1,4 +1,6 @@
 import {
+  afterNextRender,
+  afterRender,
   Component,
   contentChild,
   ContentChild,
@@ -30,6 +32,16 @@ export class ControlComponent {
   //   console.log('Control clicked!');
   // }
   // we preferred to use host element that inside the component instead of using @HostBinding & @HostListener
+
+  constructor() {
+    afterRender(() => {
+      console.log('afterRender');
+    });
+
+    afterNextRender(() => {
+      console.log('afterNextRender');
+    });
+  }
 
   private el = inject(ElementRef);
 
