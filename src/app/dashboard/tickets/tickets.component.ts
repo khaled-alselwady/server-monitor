@@ -33,4 +33,13 @@ export class TicketsComponent {
   trackById(index: number, ticket: Ticket) {
     return ticket.id;
   }
+
+  onCloseTicket(id: string) {
+    this.tickets = this.tickets.map((ticket) => {
+      if (ticket.id === id) {
+        return { ...ticket, status: 'closed' }; // ... called [Spread Operator]
+      }
+      return ticket;
+    });
+  }
 }
