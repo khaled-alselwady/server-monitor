@@ -3,6 +3,7 @@ import {
   EventEmitter,
   input,
   Input,
+  output,
   Output,
   signal,
 } from '@angular/core';
@@ -22,7 +23,8 @@ export class TicketComponent {
   // detailsVisible = false;
   detailsVisible = signal(false);
 
-  @Output() close = new EventEmitter<void>();
+  // @Output() close = new EventEmitter<void>();
+  close = output();
 
   onToggleDetails() {
     // this.detailsVisible.set(!this.detailsVisible());
