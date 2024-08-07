@@ -7,7 +7,7 @@ import {
   OnInit,
   signal,
 } from '@angular/core';
-import { enServerStatus } from './server-status.model';
+import { ServerStatus } from './server-status.model';
 
 @Component({
   selector: 'app-server-status',
@@ -17,9 +17,9 @@ import { enServerStatus } from './server-status.model';
   styleUrl: './server-status.component.css',
 })
 export class ServerStatusComponent implements OnInit {
-  currentStatus = signal<enServerStatus>(enServerStatus.Online);
+  currentStatus = signal<ServerStatus>(ServerStatus.Online);
   // private intervalId?: ReturnType<typeof setInterval>;
-
+  Status = ServerStatus;
   private destroyRef = inject(DestroyRef);
 
   constructor() {
@@ -38,11 +38,11 @@ export class ServerStatusComponent implements OnInit {
       const rnd = Math.random(); // 0 - 0.99999999999999...
 
       if (rnd < 0.5) {
-        this.currentStatus.set(enServerStatus.Online);
+        this.currentStatus.set(ServerStatus.Online);
       } else if (rnd > 0.9) {
-        this.currentStatus.set(enServerStatus.Offline);
+        this.currentStatus.set(ServerStatus.Offline);
       } else {
-        this.currentStatus.set(enServerStatus.Unknown);
+        this.currentStatus.set(ServerStatus.Unknown);
       }
     }, 5000);
 

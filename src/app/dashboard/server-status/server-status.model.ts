@@ -1,4 +1,4 @@
-export enum enServerStatus {
+export enum ServerStatus {
   Online = 'online',
   Offline = 'offline',
   Unknown = 'unknown',
