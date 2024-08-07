@@ -9,7 +9,7 @@
     <button (click)="onToggleDetails()">
       <span class="text">{{ data().title }}</span>
       <span>
-        @if (detailsVisible) {
+        @if (detailsVisible()) {
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -43,7 +43,7 @@
     </button>
   </h3>
 
-  @if (detailsVisible) {
+  @if (detailsVisible()) {
   <p>{{ data().request }}</p>
 
   @if (data().status === 'open') {
