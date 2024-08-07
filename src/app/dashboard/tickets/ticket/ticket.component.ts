@@ -11,4 +11,10 @@ import { Ticket } from './ticket.model';
 export class TicketComponent {
   // @Input({ required: true }) data!: Ticket;
   data = input.required<Ticket>();
+
+  detailsVisible = false;
+
+  onToggleDetails() {
+    this.detailsVisible = !this.detailsVisible;
+  }
 }
