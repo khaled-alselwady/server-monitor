@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, input, Input } from '@angular/core';
 import { Ticket } from './ticket.model';
 
 @Component({
@@ -9,5 +9,6 @@ import { Ticket } from './ticket.model';
   styleUrl: './ticket.component.css',
 })
 export class TicketComponent {
-  @Input({ required: true }) data!: Ticket;
+  // @Input({ required: true }) data!: Ticket;
+  data = input.required<Ticket>();
 }

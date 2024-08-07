@@ -7,7 +7,7 @@
       }"
     ></div>
     <button>
-      <span class="text">{{ data.title }}</span>
+      <span class="text">{{ data().title }}</span>
       <span>
         @if (true) {
         <svg
@@ -44,9 +44,9 @@
   </h3>
 
   @if (true) {
-  <p>{{ data.request }}</p>
+  <p>{{ data().request }}</p>
 
-  @if (data.status === 'open') {
+  @if (data().status === 'open') {
   <p><button>Mark as completed</button></p>
   } }
 </article>
