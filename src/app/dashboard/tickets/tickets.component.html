@@ -1,1 +1,16 @@
+<div>
+  <ul>
+    @for (ticket of tickets; track ticket.id) {
+    <li><app-ticket /> {{ $odd }}</li>
+    } @empty {
+    <p>No tickets available.</p>
+    }
+
+    <!-- <li *ngFor="let ticket of tickets; trackBy: trackById">
+      <app-ticket /> -
+    </li>
+    <p *ngIf="tickets.length === 0">No tickets available.</p> -->
+  </ul>
+</div>
+
 <app-new-ticket (add)="onAdd($event)" />

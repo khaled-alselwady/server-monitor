@@ -1,16 +1,18 @@
 import { Component } from '@angular/core';
 import { NewTicketComponent } from './new-ticket/new-ticket.component';
 import { Ticket } from './ticket/ticket.model';
+import { TicketComponent } from './ticket/ticket.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-tickets',
   standalone: true,
-  imports: [NewTicketComponent],
+  imports: [NewTicketComponent, TicketComponent, CommonModule],
   templateUrl: './tickets.component.html',
   styleUrl: './tickets.component.css',
 })
 export class TicketsComponent {
-  Tickets: Ticket[] = [];
+  tickets: Ticket[] = [];
 
   private createTicket(ticketData: { title: string; text: string }) {
     const ticket: Ticket = {
@@ -25,6 +27,10 @@ export class TicketsComponent {
 
   onAdd(ticketData: { title: string; text: string }) {
     const ticket = this.createTicket(ticketData);
-    this.Tickets.push(ticket);
+    this.tickets.push(ticket);
+  }
+
+  trackById(index: number, ticket: Ticket) {
+    return ticket.id;
   }
 }
